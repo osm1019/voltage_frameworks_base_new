@@ -5547,4 +5547,10 @@
   <java-symbol type="string" name="missing_sensors_permission_message" />
 
   <java-symbol type="string" name="config_gnssPsdsType" />
+
+    <!-- Package Manager -->
+    <java-symbol type="array" name="config_deviceDisabledComponents" />
+    <java-symbol type="array" name="config_globallyDisabledComponents" />
+    <java-symbol type="array" name="config_forceEnabledComponents" />
+
 </resources>
