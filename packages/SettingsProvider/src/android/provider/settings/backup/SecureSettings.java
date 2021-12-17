@@ -281,4 +281,7 @@ public class SecureSettings {
         Settings.Secure.ON_DEVICE_INFERENCE_UNBIND_TIMEOUT_MS,
         Settings.Secure.ON_DEVICE_INTELLIGENCE_IDLE_TIMEOUT_MS,
         Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
+        Settings.Secure.TORCH_DOUBLE_TAP_POWER_GESTURE_ENABLED,
+        Settings.Secure.TORCH_LONG_PRESS_POWER
+    };
 }
