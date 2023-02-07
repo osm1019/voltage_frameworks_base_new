@@ -1291,6 +1291,16 @@ public abstract class ActivityManagerInternal {
     public abstract void killApplicationSync(String pkgName, int appId, int userId,
             String reason, int exitInfoReason);
 
+    public abstract boolean queryActivityAllowed(ComponentName resolvedActivity, Intent intent, int callerUid,
+        int callerPid, String resolvedType, ApplicationInfo resolvedApp, int userId);
+    public abstract boolean queryServiceAllowed(ComponentName resolvedService, Intent intent, int callerUid,
+        int callerPid, String resolvedType, ApplicationInfo resolvedApp, int userId);
+    public abstract boolean queryReceiverAllowed(ComponentName resolvedReceiver, Intent intent, int callerUid,
+        int callerPid, String resolvedType, ApplicationInfo resolvedApp, int userId);
+    public abstract boolean queryProviderAllowed(ComponentName resolvedProvider, Intent intent, int callerUid,
+        int callerPid, String resolvedType, ApplicationInfo resolvedApp, int userId);
+    public abstract boolean queryPackageAllowed(int targetUid, String targetPackageName, int callerUid, int userId);
+
     public abstract void onGosPackageStateChanged(int uid, @Nullable GosPackageState state);
 
     public static class ProcessRecordSnapshot {
