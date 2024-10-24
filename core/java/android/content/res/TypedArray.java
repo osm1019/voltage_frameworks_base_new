@@ -530,13 +530,10 @@ public class TypedArray implements AutoCloseable {
         } else if (type == TypedValue.TYPE_ATTRIBUTE) {
             final TypedValue value = mValue;
             getValueAt(index, value);
-            //throw new UnsupportedOperationException(
-            //        "Failed to resolve attribute at index " + attrIndex + ": " + value
-            //                + ", theme=" + mTheme);
-        }
+                return defValue;
 
-        throw new UnsupportedOperationException("Can't convert value at index " + attrIndex
-                + " to color: type=0x" + Integer.toHexString(type) + ", theme=" + mTheme);
+        }
+	return defValue;
     }
 
     /**
@@ -643,13 +640,8 @@ public class TypedArray implements AutoCloseable {
         } else if (type == TypedValue.TYPE_ATTRIBUTE) {
             final TypedValue value = mValue;
             getValueAt(index, value);
-            //throw new UnsupportedOperationException(
-            //        "Failed to resolve attribute at index " + attrIndex + ": " + value
-            //                + ", theme=" + mTheme);
         }
-
-        throw new UnsupportedOperationException("Can't convert value at index " + attrIndex
-                + " to integer: type=0x" + Integer.toHexString(type) + ", theme=" + mTheme);
+        return defValue;
     }
 
     /**
@@ -695,9 +687,7 @@ public class TypedArray implements AutoCloseable {
             //        "Failed to resolve attribute at index " + attrIndex + ": " + value
             //                + ", theme=" + mTheme);
         }
-
-        throw new UnsupportedOperationException("Can't convert value at index " + attrIndex
-                + " to dimension: type=0x" + Integer.toHexString(type) + ", theme=" + mTheme);
+        return defValue;
     }
 
     /**
@@ -744,9 +734,7 @@ public class TypedArray implements AutoCloseable {
             //        "Failed to resolve attribute at index " + attrIndex + ": " + value
             //                + ", theme=" + mTheme);
         }
-
-        throw new UnsupportedOperationException("Can't convert value at index " + attrIndex
-                + " to dimension: type=0x" + Integer.toHexString(type) + ", theme=" + mTheme);
+            return defValue;
     }
 
     /**
@@ -794,9 +782,7 @@ public class TypedArray implements AutoCloseable {
             //        "Failed to resolve attribute at index " + attrIndex + ": " + value
             //                + ", theme=" + mTheme);
         }
-
-        throw new UnsupportedOperationException("Can't convert value at index " + attrIndex
-                + " to dimension: type=0x" + Integer.toHexString(type) + ", theme=" + mTheme);
+            return defValue;
     }
 
     /**
@@ -915,9 +901,7 @@ public class TypedArray implements AutoCloseable {
             //        "Failed to resolve attribute at index " + attrIndex + ": " + value
             //                + ", theme=" + mTheme);
         }
-
-        throw new UnsupportedOperationException("Can't convert value at index " + attrIndex
-                + " to fraction: type=0x" + Integer.toHexString(type) + ", theme=" + mTheme);
+            return defValue;
     }
 
     /**
