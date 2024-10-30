@@ -17,7 +17,6 @@
 package com.android.systemui.shade
 
 import android.graphics.Point
-import android.content.Context
 import android.hardware.display.AmbientDisplayConfiguration
 import android.os.PowerManager
 import android.provider.Settings
@@ -56,11 +55,9 @@ class PulsingGestureListener @Inject constructor(
         private val statusBarStateController: StatusBarStateController,
         private val shadeLogger: ShadeLogger,
         private val dozeInteractor: DozeInteractor,
-        private val powerManager: PowerManager,
         userTracker: UserTracker,
         tunerService: TunerService,
-        dumpManager: DumpManager,
-        context: Context
+        dumpManager: DumpManager
 ) : GestureDetector.SimpleOnGestureListener(), Dumpable {
     private var doubleTapEnabled = false
     private var singleTapEnabled = false

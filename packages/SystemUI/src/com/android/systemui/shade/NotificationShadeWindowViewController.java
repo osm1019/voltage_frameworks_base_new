@@ -305,14 +305,12 @@ public class NotificationShadeWindowViewController implements Dumpable {
         mStackScrollLayout = mView.findViewById(R.id.notification_stack_scroller);
         mPulsingWakeupGestureHandler = new GestureDetector(mView.getContext(),
                 mPulsingGestureListener);
+        mQQSGestureHandler = new GestureDetector(mView.getContext(),
+                mQQSGestureListener);
         if (mFeatureFlagsClassic.isEnabled(LOCKSCREEN_WALLPAPER_DREAM_ENABLED)) {
             mDreamingWakeupGestureHandler = new GestureDetector(mView.getContext(),
                     mLockscreenHostedDreamGestureListener);
         }
-
-        mQQSGestureHandler = new GestureDetector(mView.getContext(),
-                mQQSGestureListener);
-
         mView.setLayoutInsetsController(mNotificationInsetsController);
         mView.setInteractionEventHandler(new NotificationShadeWindowView.InteractionEventHandler() {
             boolean mUseDragDownHelperForTouch = false;
@@ -379,7 +377,11 @@ public class NotificationShadeWindowViewController implements Dumpable {
 
                 mFalsingCollector.onTouchEvent(ev);
                 mQQSGestureHandler.onTouchEvent(ev);
-                mPulsingWakeupGestureHandler.onTouchEvent(ev);
+                // Pass touch events to the pulsing gesture listener only if it's dozing,
+                // otherwise lockscreen DT2S and AOD DT2W will conflict.
+                if (mStatusBarStateController.isDozing()) {
+                    mPulsingWakeupGestureHandler.onTouchEvent(ev);
+                }
 
                 if (!SceneContainerFlag.isEnabled()
                         && mGlanceableHubContainerController.onTouchEvent(ev)) {
