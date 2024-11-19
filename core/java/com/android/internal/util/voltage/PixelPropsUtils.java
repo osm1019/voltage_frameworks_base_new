@@ -139,7 +139,8 @@ public class PixelPropsUtils {
             "com.google.android.youtube",
             "com.google.ar.core",
             "com.google.intelligence.sense",
-            "com.google.oslo"
+            "com.google.oslo",
+            "com.google.android.apps.googleassistant"
     };
 
     // Codenames for currently supported Pixels by Google
